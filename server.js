@@ -1,3 +1,4 @@
+const scene = process.env.SCENE || 'nolink';
 var http = require('http');
 var fs = require('fs');
 var path = require('path');
@@ -6,7 +7,7 @@ http.createServer(function (request, response) {
     if (request.url === '/302') {
         response.writeHead(302, {
             'Location': 'http://localhost:3000/',
-            'Link': '<https://lh3.googleusercontent.com>; rel="preconnect"',
+            'Link': '<https://pbs.twimg.com>; rel="preconnect"',
         });
         response.end();
         return;
@@ -15,10 +16,13 @@ http.createServer(function (request, response) {
         if (error) {
             console.log('error:', error.message);
         } else {
-            response.writeHead(200, {
-                'Content-Type': 'text/html',
-                // 'Link': '<https://lh3.googleusercontent.com>; rel="preconnect"'
-            });
+            let headers = {
+                'Content-Type': 'text/html'
+            };
+            if (scene !== 'nolink') {
+                headers['Link'] = '<https://pbs.twimg.com>; rel="preconnect"';
+            }
+            response.writeHead(200, headers);
             response.end(content, 'utf-8');
         }
     });

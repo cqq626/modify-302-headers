@@ -1,13 +1,22 @@
 # server.js
-1. http://localhost:3000: return a html with a image
-2. http://localhost:3000/302: 302 redirect to http://localhost:3000
+```
+// 1. http://localhost:3000: return a html with a image
+// 2. http://localhost:3000/302: 302 redirect to http://localhost:3000
+node server.js
+
+// 1. http://localhost:3000: return a html with a image(with Link Header)
+SCENE=withlink node server.js
+```
 
 # index.js
-visit http://localhost:3000/302 with puppeteer
+visit html with puppeteer
 ```
-// direct visit node.js
+// 302 redirect
 node index.js
 
-// intercept http://localhost:3000/302 request and return response
+// intercept 302 redirect request and return response
 SCENE=intercept node index.js
+
+// direct visit html(with Link Header)
+SCENE=withlink node index.js
 ```

@@ -23,7 +23,7 @@ const scene = process.env.SCENE || 'direct';
               status: 302,
               headers: {
                 'Location': 'http://localhost:3000',
-                'Link': '<https://lh3.googleusercontent.com>; rel="preconnect"'
+                'Link': '<https://pbs.twimg.com>; rel="preconnect"'
               }
             });
         });
@@ -33,7 +33,11 @@ const scene = process.env.SCENE || 'direct';
     await page.setCacheEnabled(false);
 
     const start = Date.now();
-    await page.goto('http://localhost:3000/302', {waitUntil: 'networkidle0' });
+    let url = 'http://localhost:3000/302';
+    if (scene === 'withlink') {
+        url = 'http://localhost:3000';
+    }
+    await page.goto(url, {waitUntil: 'networkidle0' });
     const end = Date.now();
     console.log(`done: load=${end - start}ms`);
 })();
