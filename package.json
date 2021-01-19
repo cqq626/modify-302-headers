@@ -1,0 +1,23 @@
+{
+  "name": "modify-302-headers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cqq626/modify-302-headers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cqq626/modify-302-headers/issues"
+  },
+  "homepage": "https://github.com/cqq626/modify-302-headers#readme",
+  "dependencies": {
+    "puppeteer": "^5.5.0"
+  }
+}
