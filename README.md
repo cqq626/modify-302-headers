@@ -1,3 +1,5 @@
+please read issues about my problems
+
 # server.js
 ```
 // 1. http://localhost:3000: return a html with a image
